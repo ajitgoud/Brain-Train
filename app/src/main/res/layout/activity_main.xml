@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/startScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/brain_trainer"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome To Brain Trainer.."
+            android:textAlignment="center"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/takeChallengeTextView"
+            style="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Take a Challenge"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:textAlignment="center">
+
+            <Button
+                android:id="@+id/additionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="optionChosen"
+                android:tag="4"
+                android:text="Addition"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/substractionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="optionChosen"
+                android:tag="5"
+                android:text="Substraction"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/multiplicationButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="optionChosen"
+                android:tag="6"
+                android:text="Multiplication"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/divisionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="optionChosen"
+                android:tag="7"
+                android:text="Division"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/randomButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="optionChosen"
+                android:tag="8"
+                android:text="Random"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/creditsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="optionChosen"
+                android:tag="9"
+                android:text="Credits"
+                android:textColor="@android:color/holo_orange_dark" />
+
+            <Button
+                android:id="@+id/aboutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="optionChosen"
+                android:tag="10"
+                android:text="About"
+                android:textColor="@android:color/holo_orange_dark" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/challengeScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/darker_gray"
+            android:padding="10dp"
+            android:text="30s"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/challengeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/timerTextView"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+            android:text="3 + 10"
+            android:textColor="@android:color/black"
+            android:textSize="35sp" />
+
+        <TextView
+            android:id="@+id/scoreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/darker_gray"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:text="0/0"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="40sp" />
+
+        <GridLayout
+            android:id="@+id/buttonGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/timerTextView"
+            android:layout_marginTop="10dp"
+            android:columnCount="2"
+            android:rowCount="2">
+
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_row="0"
+                android:layout_rowWeight="1"
+                android:background="@color/colorAccent"
+                android:onClick="chooseAnswer"
+                android:padding="5dp"
+                android:tag="0"
+                android:text="27"
+                android:textColor="@android:color/white"
+                android:textSize="80sp" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_row="0"
+                android:layout_rowWeight="1"
+                android:background="@android:color/holo_green_dark"
+                android:onClick="chooseAnswer"
+                android:padding="5dp"
+                android:tag="1"
+                android:text="38"
+                android:textColor="@android:color/white"
+                android:textSize="80sp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_row="1"
+                android:layout_rowWeight="1"
+                android:background="#ffc801"
+                android:onClick="chooseAnswer"
+                android:padding="5dp"
+                android:tag="2"
+                android:text="10"
+                android:textColor="@android:color/white"
+                android:textSize="80sp" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_row="1"
+                android:layout_rowWeight="1"
+                android:background="#0303fd"
+                android:onClick="chooseAnswer"
+                android:padding="5dp"
+                android:tag="3"
+                android:text="3"
+                android:textColor="@android:color/white"
+                android:textSize="80sp" />
+
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/resultTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="53dp"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/buttonGrid"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="130dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/playAgainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/resultTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-130dp"
+            android:background="@android:color/black"
+            android:onClick="playAgain"
+            android:padding="10dp"
+            android:text="Play Again!"
+            android:textColor="@android:color/background_light"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/backToHomebutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:background="@color/colorAccent"
+            android:onClick="backToHome"
+            android:padding="5dp"
+            android:text="Home"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</RelativeLayout>
